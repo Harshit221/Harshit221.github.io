@@ -1,0 +1,116 @@
+<html>
+<head>
+	<script>
+let map = {
+    '1' : {
+        '9' : 'hwh-kxji-ehi',
+        '10' : 'vtq-goqm-hjs',
+        '11' : 'cjg-uzui-gtv',
+        '13' : 'jrx-kytv-ptq',
+        '14' : 'cwp-zhom-htq',
+        '15' : 'cwp-zhom-htq',
+        '16' : 'cwp-zhom-htq',
+      },
+      '2' : { 
+        '10' : 'cjg-uzui-gtv',
+        '11' : 'hwh-kxji-ehi',
+        '13' : 'jrx-kytv-ptq',
+        '14' : 'cwp-zhom-htq',
+        '15' : 'hwh-kxji-ehi',
+        '16' : 'hwh-kxji-ehi',
+      },
+      '3' : {
+        '11' : 'hwh-kxji-ehi',
+        '13' : 'jrx-kytv-ptq',
+        '14' : 'vtq-goqm-hjs',
+        '15' : 'vtq-goqm-hjs',
+        '16' : 'vtq-goqm-hjs',
+      },
+      '4' : {
+        '11' : 'cjg-uzui-gtv',
+        '13' : 'vtq-goqm-hjs',
+        '14' : 'cwp-zhom-htq',
+        '15' : 'cjg-uzui-gtv',
+        '16' : 'cjg-uzui-gtv',
+      },
+      '5' : {
+        '9' : 'cjg-uzui-gtv',
+        '10' : 'vtq-goqm-hjs',
+        '11' : 'hwh-kxji-ehi',
+        '13' : 'jrx-kytv-ptq',
+        '14' : 'cwp-zhom-htq',
+        '15' : 'jrx-kytv-ptq',
+        '16' : 'jrx-kytv-ptq',
+      },
+      '6' : {
+        '8' : 'zpg-kodu-evf',
+        '9' : 'zpg-kodu-evf',
+      }
+};
+
+
+let subject = {
+    '1' : {
+        '9' : 'DAIE YLP/SRS',
+        '10' : 'DC VD/ADD',
+        '11' : 'KS DCV/NPD',
+        '13' : 'WT RAV/VBC',
+        '14' : 'ECES TRG/RAV Lab',
+        '15' : 'ECES TRG/RAV Lab',
+        '16' : 'ECES TRG/RAV Lab',
+      },
+      '2' : { 
+        '10' : 'KS DCV/NPD',
+        '11' : 'DAIE YLP/SRS',
+        '13' : 'WT RAV/VBC',
+        '14' : 'ECES TRG/RAV',
+        '15' : 'DAIE YLP/SRS/HBP Lab',
+        '16' : 'DAIE YLP/SRS/HBP Lab',
+      },
+      '3' : {
+        '11' : 'DAIE YLP/SRS',
+        '13' : 'WT RAV/VBC',
+        '14' : 'DC VD/ADD',
+        '15' : 'DC VD/ADD/ZJB Lab',
+        '16' : 'DC VD/ADD/ZJB Lab',
+      },
+      '4' : {
+        '11' : 'KS DCV/NPD',
+        '13' : 'DC VD/ADD',
+        '14' : 'ECES TRG/RAV',
+        '15' : 'KS DCV/NPD/ADD Lab',
+        '16' : 'KS DCV/NPD/ADD Lab',
+      },
+      '5' : {
+        '9' : 'KS DCV/NPD',
+        '10' : 'DC VD/ADD',
+        '11' : 'DAIE YLP/SRS',
+        '13' : 'WT RAV/VBC',
+        '14' : 'ECES TRG/RAV',
+        '15' : 'WT RAV/VBC/TRG Lab',
+        '16' : 'WT RAV/VBC/TRG Lab',
+      },
+      '6' : {
+        '8' : 'SDP DCV Lab',
+        '9' : 'SDP DCV Lab',
+      }
+};
+
+let day = new Date().getDay(); // day =1;
+let hour = new Date().getHours(); // hour = 9;
+let today=new Date();
+let noon=new Date(today.getFullYear(),today.getMonth(),today.getDate(),12,0,0);
+let ampm = (today.getTime()<noon.getTime())?'AM':'PM';
+
+
+if(map[day][hour] != null)
+	document.write(`<h3> <a href="http://meet.google.com/${map[day][hour]}"> ${subject[day][hour]+" "}${hour%12} to ${(hour%12)+1} ${ampm} </a></h3></br>`);
+if(map[day][hour+1] != null)
+	document.write(`<h3> <a href="http://meet.google.com/${map[day][hour+1]}">${subject[day][hour+1]+" "} ${(hour%12)+1} to ${(hour%12)+2} ${ampm} </a></h3>`);
+if(map[day][hour] == null && map[day][hour+1] == null)
+	document.write(`<h3>There are no lectures scheduled within 2 hours from now</h3>`);
+
+
+</script>
+</head>
+</html>
