@@ -1,6 +1,7 @@
 <html>
 <head>
 	<script>
+	
 let map = {
     '1' : {
         '9' : 'hwh-kxji-ehi',
@@ -47,7 +48,6 @@ let map = {
         '9' : 'zpg-kodu-evf',
       }
 };
-
 
 let subject = {
     '1' : {
@@ -102,11 +102,22 @@ let today=new Date();
 let noon=new Date(today.getFullYear(),today.getMonth(),today.getDate(),12,0,0);
 let ampm = (today.getTime()<noon.getTime())?'AM':'PM';
 
+console.log(map[day][hour]);
+
+var a=9;
+document.write(`<h3><br>Timetable of today</h3>`);
+while(a<19){
+	if(map[day][a] != null)
+	document.write(`<h3><a href="http://meet.google.com/${map[day][a]}"> ${" "+a%12} to ${(a%12)+1} ${ampm} ${subject[day][a]+" "}</a></h3>`);
+	a++;
+} 	
+
+document.write(`<h3><br>Current Lectures</h3>`);
 
 if(map[day][hour] != null)
-	document.write(`<h3> <a href="http://meet.google.com/${map[day][hour]}"> ${subject[day][hour]+" "}${hour%12} to ${(hour%12)+1} ${ampm} </a></h3></br>`);
+	document.write(`<h3><a href="http://meet.google.com/${map[day][hour]}">  ${subject[day][hour]+" "}</br>${" "+hour%12} to ${(hour%12)+1} ${ampm} </a></h3>`);
 if(map[day][hour+1] != null)
-	document.write(`<h3> <a href="http://meet.google.com/${map[day][hour+1]}">${subject[day][hour+1]+" "} ${(hour%12)+1} to ${(hour%12)+2} ${ampm} </a></h3>`);
+	document.write(`<h3><a href="http://meet.google.com/${map[day][hour+1]}"> ${subject[day][hour+1]+" "}</br>${" "+((hour%12)+1)} to ${(hour%12)+2} ${ampm} </a></h3>`);
 if(map[day][hour] == null && map[day][hour+1] == null)
 	document.write(`<h3>There are no lectures scheduled within 2 hours from now</h3>`);
 
