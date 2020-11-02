@@ -1,6 +1,6 @@
 {
-    "name": "portfolio",
-    "short_name": "portfolio",
+    "name": "double_pendulum",
+    "short_name": "double_pendulum",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
